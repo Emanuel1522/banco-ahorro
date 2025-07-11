@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.encabezado {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  height: 10vh;
+}
+
+.contenedor-encabezado {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.contenedor-encabezado ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.contenedor-encabezado li {
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.contenedor-encabezado li:hover {
+  background-color: #dedede;
+  border-radius: 8px;
+}
+
+.botonCierre {
+  font-size: 20px;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.botonCierre:hover {
+  background-color: #dedede;
+  border-radius: 8px;
+}
