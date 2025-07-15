@@ -1,0 +1,93 @@
+.formulario-usuarios {
+  display: flex;
+  width: 100%;
+  max-width: 880px;
+  height: 40px;
+  margin: 50px auto 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.boton-añadir{
+  padding: 0 25px;
+  background-color: #55a354;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 1),
+    1px 1px 10px rgba(45, 45, 45, 0.6);
+}
+
+.boton-añadir:hover{
+  background-color: #3c753b;
+}
+
+.input-usuarios {
+  flex: 1;
+  padding: 0 15px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+}
+
+.lista-usuarios {
+  list-style: none;
+  padding: 40px;
+  margin: 0;
+  border: solid 2px #ababab;
+  border-radius: 10px;
+  height: 500px;
+  width: 800px;
+  background-color: #f0f0f0;
+  overflow-y: auto;
+  margin: 0 auto;
+}
+
+.usuario-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+.usuario-item button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 8px;
+  margin-left: 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.usuario-item button:first-of-type:hover {
+  background-color: #d0eaff;
+}
+
+.usuario-item button:last-of-type:hover {
+  background-color: #ffd0d0;
+}
+
+.info-usuario {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex: 1;
+}
+
+.acciones-usuario {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

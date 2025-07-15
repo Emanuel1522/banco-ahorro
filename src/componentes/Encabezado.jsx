@@ -14,9 +14,6 @@ const Encabezado = () => {
                     <nav>
                         <ul>
                             <li>option1</li>
-                            <li>option2</li>
-                            <li>option3</li>
-                            <li>option4</li>
                         </ul>
                     </nav>
                 </section>
