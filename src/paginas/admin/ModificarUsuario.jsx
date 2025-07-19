@@ -6,6 +6,7 @@ let apiUsers = "https://fake-api-banco-ahorros-1.onrender.com/usuarios"
 const ModificarUsuario = () => {
     const [loading, setLoading] = useState(true);
     const [nombre, setNombre] = useState("");
+    const [grupo, setGrupo] = useState("");
     const [usuario, setUsuario] = useState("");
     const [contraseña, setContraseña] = useState("");
     let { id } = useParams();
@@ -16,6 +17,7 @@ const ModificarUsuario = () => {
             .then((res) => res.json())
             .then((data) => {
                 setNombre(data.nombre);
+                setGrupo(data.grupo);
                 setUsuario(data.inicio);
                 setContraseña(data.contraseña);
                 setLoading(false);
@@ -42,11 +44,6 @@ const ModificarUsuario = () => {
         })
     }
 
-    function volverInicio(e) {
-        e.preventDefault();
-        redireccion("/admin/inicio")
-    }
-
     if (loading) {
         return (
             <div className="formulario-container">
@@ -61,13 +58,13 @@ const ModificarUsuario = () => {
         <div className="formulario-container">
             <div className="form-box">
                 <div className="title">Editar Usuario</div>
-                <form onSubmit={editarUsuario} className="formulario-principal">
+                <form className="formulario-principal">
                     <input value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" type="text" className="input" />
                     <input value={usuario} onChange={(e) => setUsuario(e.target.value)} placeholder="Nombre usuario" type="text" className="input" />
                     <input value={contraseña} onChange={(e) => setContraseña(e.target.value)} placeholder="Contraseña" type="text" className="input" />
                     <div className="botones">
-                        <button type="submit" className="button">Confirmar</button>
-                        <button onClick={volverInicio} className="button-cancelar">Regresar</button>
+                        <button onClick={editarUsuario} className="button">Confirmar</button>
+                        <button onClick={()=>{redireccion(`/admin/lista-modificar/${grupo}`)}} className="button-cancelar">Regresar</button>
                     </div>
                 </form>
             </div>

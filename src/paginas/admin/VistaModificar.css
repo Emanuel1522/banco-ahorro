@@ -91,3 +91,11 @@
   flex-direction: row;
   gap: 10px;
 }
+
+.info-item:first-child {
+  width: 300px;
+}
+
+.info-item {
+  width: 100px;
+}

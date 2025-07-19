@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UsuarioItem from "../../componentes/UsuarioItem.jsx";
 let apiUsers = "https://fake-api-banco-ahorros-1.onrender.com/usuarios"
 
@@ -7,6 +7,7 @@ const ListaUsuarios = () => {
     const [usuarios, setUsuarios] = useState([]);
     const [usuarioBuscado, setUsuarioBuscado] = useState("");
     let { grupo } = useParams();
+    let redireccion = useNavigate();
 
     function getUsers() {
         fetch(apiUsers)
@@ -35,7 +36,8 @@ const ListaUsuarios = () => {
                 <input
                     className="input-usuarios"
                     placeholder="Nombre usuario" />
-                <button className="boton-añadir">Agregar</button>
+                    <button onClick={() => redireccion(`/admin/lista-modificar/${grupo}`)} className="boton-añadir">Editar grupo</button>
+                    <button onClick={()=>{redireccion("/admin/inicio")}} className="boton-cancelar">Regresar</button>
             </form>
 
             {usuariosFiltrados.length === 0 ? (

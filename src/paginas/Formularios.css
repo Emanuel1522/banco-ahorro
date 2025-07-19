@@ -15,6 +15,7 @@
 .formulario-principal {
   display: flex;
   flex-direction: column;
+  text-align: center;
   gap: 16px;
   background-color: #1f1c1c;
   padding: 30px;
@@ -25,10 +26,12 @@
 
 .input {
   padding: 10px 14px;
+  color: #c5c5c5;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
   transition: all 0.3s ease;
+  background-color: #1f1c1c;
 }
 
 .input:focus {
@@ -56,7 +59,7 @@
 .title {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  color: #333;
+  color: #c5c5c5;
   font-weight: bold;
 }
 
