@@ -6,11 +6,4 @@ export const usuarioss = [
         contraseña: "admin",
         tipo: "ADMIN"
     },
-    {
-        id: "200",
-        nombre: "PruebaU",
-        inicio: "user",
-        contraseña: "user",
-        tipo: "USER"
-    },
 ]
