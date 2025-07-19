@@ -57,8 +57,8 @@ const ModificarUsuario = () => {
     return (
         <div className="formulario-container">
             <div className="form-box">
-                <div className="title">Editar Usuario</div>
                 <form className="formulario-principal">
+                    <div className="title">Editar Usuario</div>
                     <input value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" type="text" className="input" />
                     <input value={usuario} onChange={(e) => setUsuario(e.target.value)} placeholder="Nombre usuario" type="text" className="input" />
                     <input value={contraseña} onChange={(e) => setContraseña(e.target.value)} placeholder="Contraseña" type="text" className="input" />

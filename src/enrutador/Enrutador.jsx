@@ -5,7 +5,7 @@ import InicioAdmin from "../paginas/admin/InicioAdmin";
 import VistaModificar from "../paginas/admin/VistaModificar";
 import ModificarUsuario from "../paginas/admin/ModificarUsuario";
 import CrearUsuario from "../paginas/admin/CrearUsuario";
-import EditarPerfil from "../paginas/EditarPerfil";
+import EditarPerfil from "../paginas/admin/EditarPerfil";
 import ListaUsuarios from "../paginas/admin/ListaUsuarios";
 import InicioUser from "../paginas/usuario/InicioUser";
 
