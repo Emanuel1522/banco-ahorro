@@ -1,6 +1,24 @@
+import { useNavigate } from "react-router-dom";
+let apiUsers = "https://fake-api-banco-ahorros-1.onrender.com/usuarios"
 
+const UsuarioBuscado = ({ item, actualizarUsuarios }) => {
+    let redireccion = useNavigate();
 
-const UsuarioBuscado = ({ item }) => {
+    function modificarUsuario() {
+        redireccion(`/admin/modificar/${item.id}`);
+    }
+
+    function eliminarUsuario() {
+        fetch(apiUsers + "/" + item.id, {
+            method: "DELETE",
+        }).then(()=> {
+            actualizarUsuarios()
+            alert("Usuario eliminado")
+        }).catch((error) => {
+            alert("Error al eliminar el usuario")
+        })
+        
+    }
 
     return (
         <div className="usuario-item">
@@ -9,8 +27,8 @@ const UsuarioBuscado = ({ item }) => {
                 <p>{item.tipo}</p>
             </div>
             <div className="acciones-usuario">
-                <button>✏️</button>
-                <button>❌</button>
+                <button onClick={modificarUsuario}>✏️</button>
+                <button onClick={eliminarUsuario}>❌</button>
             </div>
         </div>
     )

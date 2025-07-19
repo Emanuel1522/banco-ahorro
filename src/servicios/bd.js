@@ -1,20 +1,16 @@
-export const usuarios = [
+export const usuarioss = [
     {
-        id: "1",
-        nombre: "a",
-        clave: "a",
+        id: "100",
+        nombre: "PruebaA",
+        inicio: "admin",
+        contraseña: "admin",
         tipo: "ADMIN"
     },
     {
-        id: "2",
-        nombre: "Jeanpierry",
-        clave: "jean",
+        id: "200",
+        nombre: "PruebaU",
+        inicio: "user",
+        contraseña: "user",
         tipo: "USER"
     },
-    {
-        id: "3",
-        nombre: "Yarleyda",
-        clave: "yar",
-        tipo: "USER"
-    }
 ]

@@ -1,11 +1,11 @@
-import BuscarUsuario from "./componentes/BuscarUsuario";
+import { Outlet } from "react-router-dom";
 import Encabezado from "./componentes/encabezado";
 
 const Home = () => {
   return (
     <>
       <Encabezado />
-      <BuscarUsuario />
+      <Outlet />
     </>
   )
 }

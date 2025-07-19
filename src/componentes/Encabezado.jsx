@@ -11,13 +11,6 @@ const Encabezado = () => {
                     <h1>Banco Ahorros</h1>
                 </section>
                 <section>
-                    <nav>
-                        <ul>
-                            <li>option1</li>
-                        </ul>
-                    </nav>
-                </section>
-                <section>
                     <button onClick={() => cerrarSesion(redireccion)} className="botonCierre">Cerrar sesion</button>
                 </section>
             </div>
