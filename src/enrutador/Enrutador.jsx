@@ -5,6 +5,7 @@ import Login from "../paginas/login";
 import RutaProtegida from "../componentes/RutaProtegida";
 import ModificarUsuario from "../paginas/ModificarUsuario";
 import CrearUsuario from "../paginas/CrearUsuario";
+import EditarPerfil from "../paginas/EditarPerfil";
 
 export const Enrutador = [
   {
@@ -33,6 +34,10 @@ export const Enrutador = [
             path: "crear",
             element: <CrearUsuario />,
           },
+          {
+            path:"editar",
+            element: <EditarPerfil />
+          }
         ],
       },
     ],

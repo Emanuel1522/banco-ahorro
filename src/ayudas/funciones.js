@@ -11,3 +11,6 @@ export function cerrarSesion(redireccion) {
   localStorage.removeItem("token");
   redireccion("/");
 }
+export const editar = (redireccion) => {
+  redireccion("editar");
+};
