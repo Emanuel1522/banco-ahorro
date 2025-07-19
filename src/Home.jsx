@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Encabezado from "./componentes/encabezado";
+import Encabezado from "./componentes/Encabezado";
 
 const Home = () => {
   return (

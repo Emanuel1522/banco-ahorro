@@ -21,6 +21,20 @@ body {
   align-items: center;
   height: 100%;
 }
+.titulo {
+  display: flex;
+  align-items: center;
+  gap: 1.0rem;
+}
+
+.barra {
+  font-size: 2rem;
+  color: #888;
+}
+
+.subtitulo {
+  font-size: 1.1rem;
+}
 
 .contenedor-encabezado ul {
   display: flex;
@@ -49,6 +63,19 @@ body {
 }
 
 .botonCierre:hover {
+  background-color: #dedede;
+  border-radius: 8px;
+}
+
+.botonEditar {
+  font-size: 20px;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.botonEditar:hover {
   background-color: #dedede;
   border-radius: 8px;
 }
