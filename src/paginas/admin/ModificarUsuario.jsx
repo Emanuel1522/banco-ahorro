@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import "./Formularios.css";
+import "../Formularios.css";
 let apiUsers = "https://fake-api-banco-ahorros-1.onrender.com/usuarios"
 
 const ModificarUsuario = () => {
