@@ -47,8 +47,8 @@ const CrearUsuario = () => {
     return (
         <div className="formulario-container">
             <div className="form-box">
-                <h2 className="title">Crear Usuario</h2>
                 <form onSubmit={crearUsuario} className="formulario-principal">
+                    <h2 className="title">Crear Usuario</h2>
                     <input onChange={(e) => setId(e.target.value)} placeholder="ID" type="text" className="input"/>
                     <input onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" type="text" className="input"/>
                     <input onChange={(e) => setUsuario(e.target.value)} placeholder="Usuario" type="text" className="input"/>
