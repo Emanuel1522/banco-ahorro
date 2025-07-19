@@ -18,7 +18,7 @@ const Encabezado = () => {
           </div>
         </section>
 
-        <section>
+        <section className="botones">
           <button onClick={() => editar(redireccion)} className="botonEditar">
             Editar perfil 
           </button>
