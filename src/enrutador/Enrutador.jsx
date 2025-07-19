@@ -1,11 +1,14 @@
-import Home from "../Home";
-import InicioAdmin from "../paginas/InicioAdmin"
-import InicioUser from "../paginas/InicioUser"
-import Login from "../paginas/login";
 import RutaProtegida from "../componentes/RutaProtegida";
+import Home from "../Home";
+import Login from "../paginas/login";
+
 import ModificarUsuario from "../paginas/ModificarUsuario";
 import CrearUsuario from "../paginas/CrearUsuario";
 import EditarPerfil from "../paginas/EditarPerfil";
+import InicioAdmin from "../paginas/admin/InicioAdmin";
+import VistaModificar from "../paginas/admin/VistaModificar";
+import ListaUsuarios from "../paginas/admin/ListaUsuarios";
+import InicioUser from "../paginas/usuario/InicioUser";
 
 export const Enrutador = [
   {
@@ -25,6 +28,14 @@ export const Enrutador = [
           {
             path: "inicio",
             element: <InicioAdmin />,
+          },
+          {
+            path: "usuarios/:grupo",
+            element: <ListaUsuarios />,
+          },
+          {
+            path: "lista-modificar",
+            element: <VistaModificar />,
           },
           {
             path: "modificar/:id",
