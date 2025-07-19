@@ -54,8 +54,9 @@ const Login = () => {
 
     return (
         <div className="formulario">
-            <div className="title">Inicio de Sesión</div>
+            
             <form onSubmit={ingresar} className="formulario-principal">
+                <div className="title">Inicio de Sesión</div>
                 <input
                     type="text"
                     placeholder="Usuario"

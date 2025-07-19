@@ -34,7 +34,7 @@ export const Enrutador = [
             element: <ListaUsuarios />,
           },
           {
-            path: "lista-modificar",
+            path: "lista-modificar/:grupo",
             element: <VistaModificar />,
           },
           {
@@ -42,7 +42,7 @@ export const Enrutador = [
             element: <ModificarUsuario />,
           },
           {
-            path: "crear",
+            path: "crear/:grupo",
             element: <CrearUsuario />,
           },
           {

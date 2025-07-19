@@ -1,9 +1,8 @@
-body {
+* {
   margin: 0;
   padding: 0;
   font-family: "Bricolage Grotesque", sans-serif;
   font-optical-sizing: auto;
-  background: linear-gradient(to right, #f1f2f6, #dfe4ea);
 }
 
 .encabezado {
@@ -81,4 +80,18 @@ body {
 .botonEditar:hover {
   background-color: #dedede;
   border-radius: 8px;
+}
+
+.boton-cancelar {
+  padding: 10px 14px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton-cancelar:hover {
+  background-color: #b02a37;
 }

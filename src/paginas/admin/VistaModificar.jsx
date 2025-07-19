@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { usuarioss } from "../../servicios/bd.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UsuarioBuscado from "../../componentes/UsuarioBuscado.jsx";
 import "./VistaModificar.css";
 let apiUsers = "https://fake-api-banco-ahorros-1.onrender.com/usuarios"
@@ -9,13 +8,14 @@ const VistaModificar = () => {
     const [usuarios, setUsuarios] = useState([]);
     const [usuarioBuscado, setUsuarioBuscado] = useState("");
     let redireccion = useNavigate();
+    let {grupo} = useParams();
 
     function getUsers() {
         fetch(apiUsers)
             .then((response) => response.json())
             .then((data) => {
-                const todosLosUsuarios = [...usuarioss, ...data];
-                const soloUsers = todosLosUsuarios.filter((u) => u.tipo === "USER");
+                const todosLosUsuarios = (data);
+                const soloUsers = todosLosUsuarios.filter((u) => u.tipo === "USER" && u.grupo === grupo);
                 setUsuarios(soloUsers);
             })
             .catch((error) => console.log(error))
@@ -27,7 +27,12 @@ const VistaModificar = () => {
 
     function crearUsuario (e) {
         e.preventDefault();
-        redireccion("/admin/crear")
+        redireccion(`/admin/crear/${grupo}`)
+    }
+
+    function regresar (e) {
+        e.preventDefault();
+        redireccion(`/admin/usuarios/${grupo}`)
     }
 
     const usuariosFiltrados = usuarioBuscado.trim() === ""
@@ -38,13 +43,14 @@ const VistaModificar = () => {
 
     return (
         <>
-            <form onSubmit={crearUsuario} className="formulario-usuarios">
+            <form className="formulario-usuarios">
                 <input
                     value={usuarioBuscado}
                     onChange={(e) => setUsuarioBuscado(e.target.value)}
                     className="input-usuarios"
                     placeholder="Nombre usuario" />
-                <button type="submit" className="boton-añadir">Agregar</button>
+                <button onClick={crearUsuario} className="boton-añadir">Agregar</button>
+                <button onClick={regresar} className="boton-cancelar">Regresar</button>
             </form>
 
             {usuariosFiltrados.length === 0 ? (
