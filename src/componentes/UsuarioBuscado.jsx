@@ -24,7 +24,7 @@ const UsuarioBuscado = ({ item, actualizarUsuarios }) => {
         <div className="usuario-item">
             <div className="info-usuario">
                 <p>{item.nombre}</p>
-                <p>{item.tipo}</p>
+                <p className="ahorro-item">{item.ahorro}</p>
             </div>
             <div className="acciones-usuario">
                 <button onClick={modificarUsuario}>✏️</button>

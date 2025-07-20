@@ -6,7 +6,7 @@ import { usuarioss } from "../servicios/bd.js";
 let apiUsers = "https://fake-api-banco-ahorros-1.onrender.com/usuarios"
 
 const Login = () => {
-    const [nombre, setNombre] = useState("");
+    const [nombreUsuario, setNombreUsuario] = useState("");
     const [contraseña, setContraseña] = useState("");
     const [usuarios, setUsuarios] = useState([])
     let redireccion = useNavigate()
@@ -15,7 +15,7 @@ const Login = () => {
         fetch(apiUsers)
             .then((response) => response.json())
             .then((data) => {
-                const todosLosUsuarios = [...usuarioss, ...data]; 
+                const todosLosUsuarios = [...usuarioss, ...data];
                 setUsuarios(todosLosUsuarios);
             })
             .catch((error) => console.log(error))
@@ -26,26 +26,32 @@ const Login = () => {
     }, [])
 
     function buscarUsuario() {
-        let usuarioEncontrado = usuarios.find((usuario) => usuario.inicio === nombre.trim() && usuario.contraseña === contraseña);
+        let usuarioEncontrado = usuarios.find((usuario) => usuario.inicio === nombreUsuario.trim() && usuario.contraseña === contraseña.trim());
         return usuarioEncontrado;
     }
 
     function ingresar(e) {
         e.preventDefault();
         let usuarioEncontrado = buscarUsuario();
-        if (usuarioEncontrado) {
-            if (usuarioEncontrado.tipo === "USER") {
-                alert("Bienvenido " + usuarioEncontrado.nombre);
-                let token = tokenGenerator();
-                localStorage.setItem("token", token);
-                localStorage.setItem("rol", "user")
-                redireccion("/user/inicio");
-            } else if (usuarioEncontrado.tipo === "ADMIN") {
-                alert("Bienvenido " + usuarioEncontrado.nombre);
-                let token = tokenGenerator();
-                localStorage.setItem("token", token);
-                localStorage.setItem("rol", "admin")
-                redireccion("/admin/inicio");
+
+        if (nombreUsuario === "" || contraseña === "" ) {
+            alert("Por favor llene los campos")
+        } else {
+            if (usuarioEncontrado) {
+                if (usuarioEncontrado.tipo === "USER") {
+                    alert("Bienvenido " + usuarioEncontrado.nombre);
+                    let token = tokenGenerator();
+                    localStorage.setItem("token", token);
+                    localStorage.setItem("rol", "user")
+                    redireccion("/user/inicio");
+                } else if (usuarioEncontrado.tipo === "ADMIN") {
+                    alert("Bienvenido " + usuarioEncontrado.nombre);
+                    let token = tokenGenerator();
+                    localStorage.setItem("token", token);
+                    localStorage.setItem("id", usuarioEncontrado.id)
+                    localStorage.setItem("rol", "admin")
+                    redireccion("/admin/inicio");
+                }
             } else {
                 alert("Usuario o contraseña incorrectos");
             }
@@ -54,15 +60,15 @@ const Login = () => {
 
     return (
         <div className="formulario">
-            
+
             <form onSubmit={ingresar} className="formulario-principal">
                 <div className="title">Inicio de Sesión</div>
                 <input
                     type="text"
                     placeholder="Usuario"
-                    value={nombre}
+                    value={nombreUsuario}
                     className="input"
-                    onChange={(e) => setNombre(e.target.value)}
+                    onChange={(e) => setNombreUsuario(e.target.value)}
                 />
                 <input
                     type="text"
