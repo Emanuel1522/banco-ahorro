@@ -81,9 +81,15 @@
 
 .info-usuario {
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
   gap: 20px;
   flex: 1;
+}
+
+.detalles-usuario {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .acciones-usuario {
@@ -92,10 +98,14 @@
   gap: 10px;
 }
 
-.info-item:first-child {
+.nombre-item {
   width: 300px;
 }
 
 .info-item {
   width: 100px;
+}
+
+.ahorro-item {
+  margin-right: 2vw;
 }

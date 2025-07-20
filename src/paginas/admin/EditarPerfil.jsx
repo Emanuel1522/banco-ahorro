@@ -1,51 +1,69 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import "../Formularios.css";
+import { useNavigate } from 'react-router-dom';
+const apiUsers = "https://fake-api-banco-ahorros-1.onrender.com/usuarios"
 
 export default function EditarPerfil() {
-  const [nombre, setNombre] = useState('');
-  const [usuario, setUsuario] = useState('');
-  const [contraseña, setContraseña] = useState('');
+  const [id, setId] = useState(localStorage.getItem("id"))
+  const [nombre, setNombre] = useState("");
+  const [usuario, setUsuario] = useState("");
+  const [contraseña, setContraseña] = useState("");
+  const [usuarios, setUsuarios] = useState([]);
 
-  const limpiarCampos = () => {
-    setNombre('');
-    setUsuario('');
-    setContraseña('');
-  };
+  let redireccion = useNavigate();
 
-  const guardarCambios = async (e) => {
-    e.preventDefault();
-
-    const datos = {
-      nombre,
-      usuario,
-      contraseña
-    };
-
-    try {
-      const res = await fetch('https://fake-api-banco-ahorros-1.onrender.com/usuarios', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(datos)
+  useEffect(() => {
+    fetch(apiUsers)
+      .then((res) => res.json())
+      .then((data) => {
+        setUsuarios(data)
+        let usuarioBuscado = data.find(u => u.id === id);
+        setNombre(usuarioBuscado.nombre || "");
+        setUsuario(usuarioBuscado.inicio || "");
+        setContraseña(usuarioBuscado.contraseña || "");
       });
+  }, [id]);
 
-      if (res.ok) {
-        alert('✅ Cambios guardados correctamente');
-      } else {
-        alert('❌ Error al guardar los cambios');
-      }
-    } catch (error) {
-      console.error(error);
-      alert('💥 Error de conexión con el servidor');
+  function guardarCambios(e) {
+    e.preventDefault();
+    let otrosUsuarios = usuarios.filter((u) => u.id !== id);
+    let usuarioEncontrado = otrosUsuarios.find(u => u.inicio === usuario)
+    let contraseñaEncontrada = otrosUsuarios.find(u => u.contraseña === contraseña)
+
+    if (usuarioEncontrado) {
+      alert("Por favor ingresa otro nombre de usuario")
+      return;
+    } else if (contraseñaEncontrada) {
+      alert("Por favor ingresa otra contraseña")
+      return;
+    } else {
+      let datos = {
+        id: id,
+        nombre: nombre,
+        inicio: usuario,
+        contraseña: contraseña,
+        tipo: "ADMIN"
+      };
+
+      fetch(`${apiUsers}/${id}`, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(datos)
+      }).then(() => {
+        alert("Administrador modificado con exito!")
+        redireccion("/admin/inicio")
+      }).catch((error) => {
+        alert("Error al guardar los cambios")
+        console.log(error)
+      })
     }
-  };
+  }
 
   return (
     <div className="formulario-container">
       <div className="form-box">
-        <h2 className="title">Editar perfil</h2>
-        <form onSubmit={guardarCambios} className="formulario-principal">
+        <form className="formulario-principal">
+          <h2 className="title">Editar perfil</h2>
           <input
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
@@ -68,8 +86,8 @@ export default function EditarPerfil() {
             className="input"
           />
           <div className="botones">
-            <button type="submit" className="button">Guardar</button>
-            <button type="button" className="button-cancelar" onClick={limpiarCampos}>
+            <button onClick={guardarCambios} className="button">Guardar</button>
+            <button className="button-cancelar" onClick={() => { redireccion("/admin/inicio") }}>
               Cancelar
             </button>
           </div>
