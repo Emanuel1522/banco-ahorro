@@ -1,6 +1,6 @@
 import RutaProtegida from "../componentes/RutaProtegida";
 import Home from "../Home";
-import Login from "../paginas/login";
+import Login from "../paginas/Login";
 import InicioAdmin from "../paginas/admin/InicioAdmin";
 import VistaModificar from "../paginas/admin/VistaModificar";
 import ModificarUsuario from "../paginas/admin/ModificarUsuario";
