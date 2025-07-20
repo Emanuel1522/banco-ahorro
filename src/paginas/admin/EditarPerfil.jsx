@@ -87,9 +87,7 @@ export default function EditarPerfil() {
           />
           <div className="botones">
             <button onClick={guardarCambios} className="button">Guardar</button>
-            <button className="button-cancelar" onClick={() => { redireccion("/admin/inicio") }}>
-              Cancelar
-            </button>
+            <button className="button-cancelar" onClick={() => { redireccion("/admin/inicio") }}>Cancelar</button>
           </div>
         </form>
       </div>

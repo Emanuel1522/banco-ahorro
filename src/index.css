@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Bricolage Grotesque", sans-serif;
   font-optical-sizing: auto;
 }
@@ -13,9 +14,11 @@
   font-size: 22px;
   font-weight: bold;
   height: 10vh;
+  width: 100%;
 }
 
 .contenedor-encabezado {
+  position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -69,6 +72,7 @@
 }
 
 .botonEditar {
+  margin-right: 30px;
   font-size: 20px;
   border: none;
   border-radius: 8px;
@@ -94,4 +98,42 @@
 
 .boton-cancelar:hover {
   background-color: #b02a37;
+}
+
+.hamburguesa {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburguesa {
+    display: block;
+  }
+
+  .botones-encabezado {
+    position: fixed;
+    top: 10vh;
+    left: 0;
+    width: 100vw;
+    padding: 1rem 1rem;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 2px solid #333;
+    z-index: 999;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .botones-encabezado.mostrar {
+    display: flex;
+  }
+
+  .botonCierre,
+  .botonEditar {
+    width: 85%;
+    text-align: center;
+    margin: 5px 0;
+  }
 }
