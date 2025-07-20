@@ -10,6 +10,7 @@ export function tokenGenerator() {
 export function cerrarSesion(redireccion) {
   localStorage.removeItem("token");
   localStorage.removeItem("rol");
+  localStorage.removeItem("id")
   redireccion("/");
 }
 export const editar = (redireccion) => {

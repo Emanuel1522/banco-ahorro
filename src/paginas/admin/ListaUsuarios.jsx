@@ -34,10 +34,12 @@ const ListaUsuarios = () => {
         <>
             <form className="formulario-usuarios">
                 <input
+                    value={usuarioBuscado}
+                    onChange={(e) => setUsuarioBuscado(e.target.value)}
                     className="input-usuarios"
                     placeholder="Nombre usuario" />
-                    <button onClick={() => redireccion(`/admin/lista-modificar/${grupo}`)} className="boton-añadir">Editar grupo</button>
-                    <button onClick={()=>{redireccion("/admin/inicio")}} className="boton-cancelar">Regresar</button>
+                <button onClick={() => redireccion(`/admin/lista-modificar/${grupo}`)} className="boton-añadir">Editar grupo</button>
+                <button onClick={() => { redireccion("/admin/inicio") }} className="boton-cancelar">Regresar</button>
             </form>
 
             {usuariosFiltrados.length === 0 ? (

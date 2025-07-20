@@ -1,9 +1,21 @@
 import { useNavigate } from "react-router-dom";
-import { cerrarSesion } from "../ayudas/funciones"
-import { editar } from "../ayudas/funciones";
+import { cerrarSesion, editar } from "../ayudas/funciones"
+import { useState } from "react";
 
 const Encabezado = () => {
+  const [menuAbierto, setMenuAbierto] = useState(false)
   let redireccion = useNavigate();
+
+  const toggleMenu = () => {
+    setMenuAbierto(!menuAbierto);
+  };
+
+  const cerrarMenuYRedirigir = (accion) => {
+    setMenuAbierto(false);
+    accion(redireccion);
+  };
+
+  const rolGuardado = localStorage.getItem("rol")
 
   return (
     <header className="encabezado">
@@ -18,16 +30,17 @@ const Encabezado = () => {
           </div>
         </section>
 
-        <section className="botones">
-          <button onClick={() => editar(redireccion)} className="botonEditar">
-            Editar perfil 
-          </button>
-          <button
-            onClick={() => cerrarSesion(redireccion)}
-            className="botonCierre"
-          >
-            Cerrar sesion
-          </button>
+        <div className="hamburguesa" onClick={toggleMenu}>
+          ☰
+        </div>
+
+        <section className={`botones-encabezado ${menuAbierto ? "mostrar" : ""}`}>
+          {rolGuardado === "admin" && (
+            <button onClick={() => cerrarMenuYRedirigir(editar)} className="botonEditar">
+              Editar perfil
+            </button>
+          )}
+          <button onClick={() => cerrarMenuYRedirigir(cerrarSesion)} className="botonCierre">Cerrar sesion</button>
         </section>
       </div>
     </header>

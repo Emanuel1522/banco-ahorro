@@ -42,6 +42,7 @@ const Login = () => {
                     alert("Bienvenido " + usuarioEncontrado.nombre);
                     let token = tokenGenerator();
                     localStorage.setItem("token", token);
+                    localStorage.setItem("id", usuarioEncontrado.id)
                     localStorage.setItem("rol", "user")
                     redireccion("/user/inicio");
                 } else if (usuarioEncontrado.tipo === "ADMIN") {
