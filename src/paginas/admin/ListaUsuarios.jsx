@@ -32,6 +32,7 @@ const ListaUsuarios = () => {
 
     return (
         <>
+        <h2 className="titulo-grupo">{grupo}</h2>
             <form className="formulario-usuarios">
                 <input
                     value={usuarioBuscado}
