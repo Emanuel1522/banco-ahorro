@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom"
 import "./InicioAdmin.css"
 
+
 const InicioAdmin = () => {
     let redireccion = useNavigate();
     
     return (
+
         <main className="contenedor-principal-main">
             <h2>Grupos</h2>
             <div className="contenedor-grupos">
